@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScrollConverter"
+             xmlns:converters="clr-namespace:ScrollConverter;assembly=ScrollConverter"
+             x:Class="ScrollConverter.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:SizeConverter x:Key="SizeConverter"/>
+            <converters:FocusConverter x:Key="FocusConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView x:Name="scrollItem" Orientation="Horizontal" HorizontalOptions = "LayoutOptions.Fill" VerticalOptions="LayoutOptions.Fill" BackgroundColor="#443E43">
+        <StackLayout Orientation="Horizontal" >
+            <Label Margin="15,15,15,15" x:Name="ShoesPart" Text="Shoes" FontSize="{Binding Tab1Visible, Converter={StaticResource SizeConverter}}" HorizontalOptions="FillAndExpand" TextColor="{Binding Tab1Visible, Converter={StaticResource FocusConverter}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Margin="15,15,15,15" x:Name="TravelPart" Text="Travel" FontSize="{Binding Tab2Visible, Converter={StaticResource SizeConverter}}" HorizontalOptions="FillAndExpand" TextColor="{Binding Tab2Visible, Converter={StaticResource FocusConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="2"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Margin="15,15,15,15" x:Name="BagsPart" Text="Bags" FontSize="{Binding Tab3Visible, Converter={StaticResource SizeConverter}}" HorizontalOptions="FillAndExpand" TextColor="{Binding Tab3Visible, Converter={StaticResource FocusConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="3"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Margin="15,15,15,15" x:Name="AccessoriesPart" Text="Accessories" FontSize="{Binding Tab4Visible, Converter={StaticResource SizeConverter}}" HorizontalOptions="FillAndExpand" TextColor="{Binding Tab4Visible, Converter={StaticResource FocusConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TabTappedCommand}" CommandParameter="4"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
